@@ -1,0 +1,22 @@
+[mired]
+192.168.33.10 ansible_connection=local package=ftp
+192.168.33.11 
+192.168.33.12
+
+#[all:vars]
+#ansible_ssh_pass=vagrant
+
+[cliente11]
+192.168.33.11
+
+[cliente12]
+192.168.33.12
+
+[clientes]
+192.168.33.11
+192.168.33.12
+
+[redis]
+192.168.33.10 ansible_hostname=r1 ansible_connection=local package=ftp
+192.168.33.11 ansible_hostname=r2
+192.168.33.12 ansible_hostname=r3
