@@ -28,4 +28,5 @@ usage:
 vagrant address <machine>
   
 Ex: vagrant address master-ansible
+
 ![image](https://user-images.githubusercontent.com/58102601/110527830-ba043180-8117-11eb-8b4c-e9365a0c4b29.png)
