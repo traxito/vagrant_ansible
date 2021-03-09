@@ -19,3 +19,13 @@ You can check the status of your machine on Hyper-v Manager:
 
 ![image](https://user-images.githubusercontent.com/58102601/110521821-87a30600-8110-11eb-86bd-9a83c39f2230.png)
 
+To check ip from Vagrant, install this plugin:
+
+vagrant plugin install vagrant-address
+
+usage:
+
+vagrant address <machine>
+  
+Ex: vagrant address master-ansible
+![image](https://user-images.githubusercontent.com/58102601/110527830-ba043180-8117-11eb-8b4c-e9365a0c4b29.png)
