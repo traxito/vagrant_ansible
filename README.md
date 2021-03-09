@@ -17,5 +17,5 @@ vagrant up --provider=hyperv
 
 You can check the status of your machine on Hyper-v Manager:
 
-![image](https://user-images.githubusercontent.com/58102601/110521636-41e63d80-8110-11eb-8090-ff42de87c007.png)
+![image](https://user-images.githubusercontent.com/58102601/110521821-87a30600-8110-11eb-86bd-9a83c39f2230.png)
 
