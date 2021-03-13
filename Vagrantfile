@@ -1,14 +1,21 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
+#For Hyper-v provider
+#  config.vm.network "private_network"
+#  config.vm.provider "hyperv" do |hyperv|
+#    cpus = "1"
+#    maxmemory = "1024"
+#    hyperv.enable_virtualization_extensions = true
+#    hyperv.linked_clone = true
+#  end
+#For VB provider
+config.vm.provider "virtualbox" do |vb|
+  vb.gui = false
+  vb.cpus = 1
+  vb.memory = "1024"
+end
 
-  config.vm.network "private_network"
-  config.vm.provider "hyperv" do |hyperv|
-    cpus = "1"
-    maxmemory = "1024"
-    hyperv.enable_virtualization_extensions = true
-    hyperv.linked_clone = true
-  end
 
 # master-ansible
 config.vm.define "master-ansible" do |app|
@@ -16,7 +23,7 @@ config.vm.define "master-ansible" do |app|
   #config.vm.synced_folder ".", "/vagrant"
     app.vm.hostname = "master-ansible"
   # on VirtualBox, you can uncomment this line  
-  #  app.vm.network "private_network", ip: "192.168.33.10"
+    app.vm.network "private_network", ip: "192.168.33.10"
     app.vm.provision "shell", path: "provision/provision.sh"
 	end
 
@@ -26,7 +33,7 @@ config.vm.define "master-ansible" do |app|
   #config.vm.synced_folder ".", "/vagrant"
     app.vm.hostname = "slave1"
   # on VirtualBox, you can uncomment this line   
-  #  app.vm.network "private_network", ip: "192.168.33.11"  
+    app.vm.network "private_network", ip: "192.168.33.11"  
 	app.vm.provision "shell", path: "provision/provision-slave.sh"
 	end
 	# slave2
@@ -35,7 +42,7 @@ config.vm.define "master-ansible" do |app|
   #config.vm.synced_folder ".", "/vagrant"
     app.vm.hostname = "slave2"
   # on VirtualBox, you can uncomment this line   
-  #  app.vm.network "private_network", ip: "192.168.33.12"
+    app.vm.network "private_network", ip: "192.168.33.12"
 	app.vm.provision "shell", path: "provision/provision-slave.sh"
   end
 end
